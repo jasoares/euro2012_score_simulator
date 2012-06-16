@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  home: 
+  away: 
+  h_score: 1
+  a_score: 1
+  group: 
+
+two:
+  home: 
+  away: 
+  h_score: 1
+  a_score: 1
+  group: 

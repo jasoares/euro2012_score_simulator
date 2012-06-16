@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <table class="listing" summary="Group Board">
+  <tr class="header">
+    <th>Group <%= @group.name %></th>
+    <th>M</th>
+    <th>W</th>
+    <th>D</th>
+    <th>L</th>
+    <th>GF</th>
+    <th>GA</th>
+    <th>GD</th>
+    <th>Pts</th>
+  </tr>
+  <% @group.teams.sort.each do |team| %>
+  <tr class="<%= cycle('odd', 'even') %>">
+    <td><%= team.name %></td>
+    <td><%= team.matches %></td>
+    <td><%= team.wins %></td>
+    <td><%= team.draws %></td>
+    <td><%= team.losses %></td>
+    <td><%= team.goals_for %></td>
+    <td><%= team.goals_ag %></td>
+    <td><%= team.goal_dif %></td>
+    <td><%= team.points %></td>
+  </tr>
+  <% end %>
+  </table>
+
+  <b>Scores:</b>
+  <ul>
+    <% @group.scores.each do |s| %>
+      <li><%= "#{s.home_team} #{s.h_score} vs #{s.a_score} #{s.away_team}" %></li>
+    <% end %>
+  </ul>
+</p>
+
+
+<%= link_to 'Edit', edit_group_path(@group) %> |
+<%= link_to 'Back', groups_path %>

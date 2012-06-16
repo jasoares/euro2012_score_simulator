@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Home:</b>
+  <%= @score.home_team %>
+</p>
+
+<p>
+  <b>Away:</b>
+  <%= @score.away_team %>
+</p>
+
+<p>
+  <b>H score:</b>
+  <%= @score.h_score %>
+</p>
+
+<p>
+  <b>A score:</b>
+  <%= @score.a_score %>
+</p>
+
+<p>
+  <b>Group:</b>
+  <%= @score.group %>
+</p>
+
+
+<%= link_to 'Edit', edit_score_path(@score) %> |
+<%= link_to 'Back', scores_path %>
