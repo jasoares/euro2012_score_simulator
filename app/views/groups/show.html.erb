@@ -15,11 +15,9 @@
     </tr>
     <% @group.teams.sort.each do |team| %>
     <tr class="<%= cycle('odd', 'even') %>">
-      <td id="team" >
-        <%= image_tag("#{team.name.downcase.gsub(" ", "_")}.gif",
-          { :height => 20, :width => 40, :class => "flag" }) %>
-        <%= team.name %>
-      </td>
+      <% flag = image_tag("#{team.name.downcase.gsub(" ", "_").gsub(".", "")}.gif",
+        { :height => 20, :width => 40, :class => "flag" }) %>
+      <td id="team" ><%= flag %>&nbsp;<%=team.name %></td>
       <td><%= team.matches %></td>
       <td><%= team.wins %></td>
       <td><%= team.draws %></td>
@@ -33,17 +31,26 @@
   </table>
 </div>
 
-<div class="score_list">
+<div class="box">
   <div class="box_header">Scores</div>
   <div class="box_content">
-    <% @group.scores.each do |s| %>
-      <p><%= "#{s.home_team} #{s.h_score} vs #{s.a_score} #{s.away_team}" %></p>
-    <% end %>
+    <table class="scores" summary="Score list">
+      <% @group.scores.each do |s| %>
+      <tr>
+        <td class="home_team"><%= s.home_team %></td>
+        <td><%= s.h_score %></td>
+        <td>vs</td>
+        <td><%= s.a_score %></td>
+        <td class="away_team"><%= s.away_team %></td>
+      </tr>
+      <% end %>
+    </table>
   </div>
 </div>
 
 <div class="nav">
-  <h3><%= link_to "A",
+  <h3>&nbsp;
+  <%= link_to "A",
     { :controller => "groups", :action => "show", :id => 1 },
     :class => @group.name == "A" ? "current" : "group" %>
   <%= link_to "B",
@@ -55,7 +62,5 @@
   <%= link_to "D",
     { :controller => "groups", :action => "show", :id => 4 },
     :class => @group.name == "D" ? "current" : "group" %></h3>
+  <%= link_to 'Back', groups_path %>
 </div>
-
-<!--<# link_to 'Edit', edit_group_path(@group) %> |-->
-<!--<# link_to 'Back', groups_path %>-->

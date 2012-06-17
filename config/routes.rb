@@ -1,4 +1,7 @@
 Euro2012ScoreSimulator::Application.routes.draw do
+
+  root :to => 'groups#index'
+  
   resources :teams
 
   resources :scores

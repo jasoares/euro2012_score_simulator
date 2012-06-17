@@ -11,7 +11,7 @@
 ])
 
 Team.create([
-  { name: "Czech Republic", group: @group_a },
+  { name: "Czech Rep.", group: @group_a },
   { name: "Greece", group: @group_a },
   { name: "Poland", group: @group_a },
   { name: "Russia", group: @group_a }
@@ -47,7 +47,9 @@ Score.create([
   { home_team: @net, away_team: @den, h_score: 0, a_score: 1, group: @group_b },
   { home_team: @ger, away_team: @por, h_score: 1, a_score: 0, group: @group_b },
   { home_team: @den, away_team: @por, h_score: 2, a_score: 3, group: @group_b },
-  { home_team: @net, away_team: @ger, h_score: 1, a_score: 2, group: @group_b }
+  { home_team: @net, away_team: @ger, h_score: 1, a_score: 2, group: @group_b },
+  { home_team: @den, away_team: @ger, h_score: 1, a_score: 2, group: @group_b },
+  { home_team: @por, away_team: @net, h_score: 2, a_score: 1, group: @group_b }
 ])
 
 Team.create([

@@ -1,23 +1,27 @@
-<h2>Listing groups</h2>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<h2>Groups:</h2>
 
 <% @groups.each do |group| %>
-  <tr>
-    <td><%= group.name %></td>
-    <td><%= link_to 'Show', group %></td>
-    <td><%= link_to 'Edit', edit_group_path(group) %></td>
-    <td><%= link_to 'Destroy', group, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+  <div class="group">
+    <div class="group_header"><%= link_to "Group #{group.name}", group %></div>
+    <div class="group_content">
+      <% group.teams.each do |team| %>
+        <%= image_tag("#{team.name.downcase.gsub(" ", "_").gsub(".", "")}.gif",
+          { :height => 40, :width => 80, :class => "flag" }) %>
+      <% end %>
+    </div>
+  </div>
 <% end %>
-</table>
 
-<br />
+<!--<table>
 
-<%= link_to 'New Group', new_group_path %>
+<%# @groups.each do |group| %>
+  <tr>
+    <td><%# group.name %></td>
+    <td><%# link_to 'Show', group %></td>
+    <td><%# link_to 'Edit', edit_group_path(group) %></td>
+    <td><%# link_to 'Destroy', group, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<%# end %>
+</table>-->
+
+<%# link_to 'New Group', new_group_path %>
