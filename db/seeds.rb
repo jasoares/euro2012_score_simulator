@@ -53,7 +53,7 @@ Score.create([
 Team.create([
   { name: "Croatia", group: @group_c },
   { name: "Italy", group: @group_c },
-  { name: "Republic of Ireland", group: @group_c },
+  { name: "Rep. of Ireland", group: @group_c },
   { name: "Spain", group: @group_c }
 ])
 

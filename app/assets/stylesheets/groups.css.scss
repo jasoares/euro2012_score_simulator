@@ -1,3 +1,121 @@
 // Place all the styles related to the Groups controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.odd { background: #eee }
+.even { background: #ddd }
+
+div.score_table {
+  float: left;
+}
+
+table.board th {
+  font-size: 1.3em;
+  background: #666;
+  color: #fff;
+  width: 45px;
+  height: 40px
+}
+
+table.board td { font-size: 1.3em }
+
+table.board { border-collapse: collapse }
+
+table.board tr { padding: 0 }
+
+table.board td { width: 55px; text-align: center; height: 35px }
+
+table.board td#team { width: 170px; text-align: left; padding-left: 8px }
+
+table.board th#team { width: 170px; text-align: left; padding-left: 8px }
+
+table.board td#team img.flag { vertical-align: top }
+
+table.board th:first-child {
+    -moz-border-radius: 6px 0 0 0;
+    -webkit-border-radius: 6px 0 0 0;
+    border-radius: 6px 0 0 0;
+}
+
+table.board th:last-child {
+     -moz-border-radius: 0 6px 0 0;
+  -webkit-border-radius: 0 6px 0 0;
+          border-radius: 0 6px 0 0;
+        -moz-box-shadow: 2px 2px 5px #666;
+     -webkit-box-shadow: 2px 2px 5px #666;
+             box-shadow: 2px 2px 5px #666;
+}
+
+table.board th:only-child{
+    -moz-border-radius: 6px 6px 0 0;
+    -webkit-border-radius: 6px 6px 0 0;
+    border-radius: 6px 6px 0 0;
+}
+
+table.board tr:last-child td:first-child {
+    -moz-border-radius: 0 0 0 6px;
+    -webkit-border-radius: 0 0 0 6px;
+    border-radius: 0 0 0 6px;
+}
+
+table.board tr td:last-child {
+        -moz-box-shadow: 2px 2px 5px #666;
+     -webkit-box-shadow: 2px 2px 5px #666;
+             box-shadow: 2px 2px 5px #666;
+}
+
+table.board tr:last-child td {
+        -moz-box-shadow: 2px 2px 5px #666;
+     -webkit-box-shadow: 2px 2px 5px #666;
+             box-shadow: 2px 2px 5px #666;
+}
+
+table.board tr:last-child td:last-child {
+     -moz-border-radius: 0 0 6px 0;
+  -webkit-border-radius: 0 0 6px 0;
+          border-radius: 0 0 6px 0;
+}
+
+div.score_list {
+  font-size: 1.1em;
+  float: right;
+  width: 250px;
+  height: 300px;
+  vertical-align: center;
+}
+
+div.box_header {
+  font-size: 1.3em;
+  padding: 15px 0px 0px 8px;
+  background: #666;
+  height: 30px;
+  color: #fff;
+  text-align: center;
+  vertical-align: center;
+  -moz-border-radius: 6px 6px 0 0;
+  -webkit-border-radius: 6px 6px 0 0;
+  border-radius: 6px 6px 0 0;
+}
+
+div.box_content {
+  font-size: 1.2em;
+  text-align: center;
+  overflow: auto;
+  border: 1px solid #666;
+  -moz-border-radius: 0 0 6px 6px;
+  -webkit-border-radius: 0 0 6px 6px;
+  border-radius: 0 0 6px 6px;
+}
+
+div.nav {
+  float: left;
+}
+
+a { text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* large action buttons */
+a.action { float: right; padding: 2px 5px; margin: 0 0 1em 1em; 
+  background: #94B26F; color: #4C2516;  border: 1px solid #4C2516;
+  text-decoration: none; font-size: 0.8em; text-align: center; }
+a.action:hover { background: #B6D491; }

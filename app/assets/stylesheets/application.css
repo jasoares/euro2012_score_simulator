@@ -11,3 +11,34 @@
  *= require_self
  *= require_tree .
 */
+
+body {
+  margin: 0px;
+}
+
+div#header {
+  background: #8c8;
+  color: #373;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 50px;
+  padding-top: 15px;
+  padding-left: 20px;
+  border-bottom: 5px inset #beb;
+}
+
+div#content {
+  margin: 30px;
+  padding: 10px;
+  overflow: auto;
+}
+
+div#footer {
+  background: #8c8;
+  color: #373;
+  font_size: 1.5em;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 1000px;
+  text-align: center;
+  padding-top: 3px;
+  padding-left: 20px;
+}

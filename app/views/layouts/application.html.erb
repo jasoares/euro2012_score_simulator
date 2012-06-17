@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Euro2012ScoreSimulator</title>
+  <title>Euro 2012 Score Simulator</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<div id="header">
+  <h1>Euro 2012 Score Simulator</h1>
+</div>
+
+<div id="content">
+  <%= yield %>
+</div>
 
 </body>
 </html>
+
+<div id="footer">
+  <% github = link_to "GitHub", "http://github.com/jasoares/euro2012_score_simulator/" %>
+  <h4>Open Source App - Fork the source code at <%= github %></h4>
+</div>
