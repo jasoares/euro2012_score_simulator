@@ -10,17 +10,12 @@
   { name: "A" }, { name: "B" }, { name: "C" }, { name: "D"}
 ])
 
-Team.create([
+@cze, @gre, @pol, @rus = Team.create([
   { name: "Czech Rep.", group: @group_a },
   { name: "Greece", group: @group_a },
   { name: "Poland", group: @group_a },
   { name: "Russia", group: @group_a }
 ])
-
-@cze = @group_a.teams[0]
-@gre = @group_a.teams[1]
-@pol = @group_a.teams[2]
-@rus = @group_a.teams[3]
 
 Score.create([
   { home_team: @pol, away_team: @gre, h_score: 1, a_score: 1, group: @group_a },
@@ -31,17 +26,12 @@ Score.create([
   { home_team: @cze, away_team: @pol, h_score: 1, a_score: 0, group: @group_a }
 ])
 
-b_teams = Team.create([
+@den, @ger, @net, @por = Team.create([
   { name: "Denmark", group: @group_b },
   { name: "Germany", group: @group_b },
   { name: "Netherlands", group: @group_b },
   { name: "Portugal", group: @group_b }
 ])
-
-@den = @group_b.teams[0]
-@ger = @group_b.teams[1]
-@net = @group_b.teams[2]
-@por = @group_b.teams[3]
 
 Score.create([
   { home_team: @net, away_team: @den, h_score: 0, a_score: 1, group: @group_b },
@@ -52,17 +42,12 @@ Score.create([
   { home_team: @por, away_team: @net, h_score: 2, a_score: 1, group: @group_b }
 ])
 
-Team.create([
+@cro, @ita, @roi, @spa = Team.create([
   { name: "Croatia", group: @group_c },
   { name: "Italy", group: @group_c },
   { name: "Rep. of Ireland", group: @group_c },
   { name: "Spain", group: @group_c }
 ])
-
-@cro = @group_c.teams[0]
-@ita = @group_c.teams[1]
-@roi = @group_c.teams[2]
-@spa = @group_c.teams[3]
 
 Score.create([
   { home_team: @spa, away_team: @ita, h_score: 1, a_score: 1, group: @group_c },
@@ -71,17 +56,12 @@ Score.create([
   { home_team: @spa, away_team: @roi, h_score: 4, a_score: 0, group: @group_c }
 ])
 
-Team.create([
+@eng, @fra, @swe, @ukr = Team.create([
   { name: "England", group: @group_d },
   { name: "France", group: @group_d },
   { name: "Sweeden", group: @group_d },
   { name: "Ukraine", group: @group_d }
 ])
-
-@eng = @group_d.teams[0]
-@fra = @group_d.teams[1]
-@swe = @group_d.teams[2]
-@ukr = @group_d.teams[3]
 
 Score.create([
   { home_team: @fra, away_team: @eng, h_score: 1, a_score: 1, group: @group_d },
