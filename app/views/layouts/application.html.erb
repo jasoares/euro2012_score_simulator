@@ -9,6 +9,7 @@
 <body>
 
 <div id="header">
+  <%= image_tag("football_icon_128.png", { :height => 48, :width => 64, :class => "site_icon" }) %>
   <h1>Euro 2012 Score Simulator</h1>
 </div>
 
@@ -16,10 +17,10 @@
   <%= yield %>
 </div>
 
-</body>
-</html>
-
 <div id="footer">
   <% github = link_to "GitHub", "http://github.com/jasoares/euro2012_score_simulator/" %>
-  <h4>Open Source App - Fork the source code at <%= github %></h4>
+  <h3>Open Source App - Fork the source code at <%= github %></h4>
 </div>
+
+</body>
+</html>

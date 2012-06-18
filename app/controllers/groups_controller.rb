@@ -14,6 +14,8 @@ class GroupsController < ApplicationController
   # GET /groups/1.json
   def show
     @group = Group.find(params[:id])
+    @groups = Group.all
+    @score = Score.new
 
     respond_to do |format|
       format.html # show.html.erb

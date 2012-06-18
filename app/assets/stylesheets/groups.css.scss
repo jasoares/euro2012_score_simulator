@@ -5,12 +5,37 @@
 .odd { background: #cfc }
 .even { background: #dfd }
 
+.nav {
+  color: #8c8;
+  float: center;
+  height: 30px;
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+.nav a {
+  color: #373;
+  background-color: #fff;
+  text-decoration: none;
+}
+
+.nav a:hover {
+  color: #8c8;
+  background-color: #fff;
+  text-decoration: underline;
+}
+
+div.main {
+  height: 220px;
+  position: relative;
+}
+
 div.score_table {
   float: left;
 }
 
 table.board th {
-  font-size: 1.3em;
+  font-size: 1.2em;
   background: #8c8;
   color: #373;
   width: 45px;
@@ -29,7 +54,7 @@ table.board td#team { width: 170px; text-align: left; padding-left: 8px }
 
 table.board th#team { width: 170px; text-align: left; padding-left: 8px }
 
-table.board td#team img.flag { vertical-align: top }
+table.board td#team img.flag { vertical-align: middle }
 
 table.board th:first-child {
     -moz-border-radius: 6px 0 0 0;
@@ -44,8 +69,6 @@ table.board th:last-child {
   box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.4);
   -moz-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.4);
   -webkit-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.4);
-        
-        
 }
 
 table.board th:only-child{
@@ -89,8 +112,7 @@ div.box {
   vertical-align: center;
 }
 
-div.box_header {
-  position: relative;
+.box_header {
   z-index: 3;
   clear: all;
   border-collapse: collapse;
@@ -112,13 +134,12 @@ div.box_header {
   -webkit-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.4);
 }
 
-div.box_content {
-  position: relative;
+.box_content {
   z-index: 3;
   border-collapse: collapse;
   padding-top: 10px;
   padding-bottom: 10px;
-  font-size: 1.2em;
+  font-size: 1em;
   width: 248px;
   border: 1px solid #8c8;
   -webkit-border-bottom-right-radius: 6px;
@@ -132,7 +153,12 @@ div.box_content {
   -webkit-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.4);
 }
 
-div.group {
+#groups{
+  float: center;
+  height: 300px;
+}
+
+.group {
   border-collapse: collapse;
   margin-left: 12px;
   margin-right: 12px;
@@ -143,18 +169,7 @@ div.group {
   vertical-align: center;
 }
 
-div.group_header a {
-  color: #373;
-  background: #8c8;
-  text-decoration: none;
-}
-
-div.group_header a:hover {
-  color: #595;
-}
-
-div.group_header {
-  position: relative;
+.group_header {
   z-index: 3;
   clear: all;
   border-collapse: collapse;
@@ -176,13 +191,21 @@ div.group_header {
   -webkit-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.4);
 }
 
-img.flag {
+.group_header a {
+  background-color: #8c8;
+}
+
+.group_header a:hover {
+  color: #fff;
+}
+
+
+.flag {
   border: 1px solid #8c8;
 }
 
-div.group_content {
+.group_content {
   background: #dfd;
-  position: relative;
   z-index: 3;
   border-collapse: collapse;
   padding: 10px;
@@ -203,23 +226,8 @@ div.group_content {
 table.scores {
   width: 248px;
   text-align: center;
-  position: relative;
-  left: 0px;
 }
 
 table.scores td { padding-left: 2px; padding-right: 2px; }
 table.scores td.home_team { text-align: right; }
 table.scores td.away_team { text-align: left; }
-
-div.nav {
-  float: left;
-}
-
-a { text-decoration: none; }
-a:hover { text-decoration: underline; }
-
-/* large action buttons */
-a.action { float: right; padding: 2px 5px; margin: 0 0 1em 1em; 
-  background: #94B26F; color: #4C2516;  border: 1px solid #4C2516;
-  text-decoration: none; font-size: 0.8em; text-align: center; }
-a.action:hover { background: #B6D491; }

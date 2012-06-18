@@ -1,66 +1,100 @@
 <p id="notice"><%= notice %></p>
 
-<div class="score_table">
-  <table class="board" summary="Group Board">
-    <tr class="header">
-      <th id="team">Group <%= @group.name %></th>
-      <th>M</th>
-      <th>W</th>
-      <th>D</th>
-      <th>L</th>
-      <th>GF</th>
-      <th>GA</th>
-      <th>GD</th>
-      <th>Pts</th>
-    </tr>
-    <% @group.teams.sort.each do |team| %>
-    <tr class="<%= cycle('odd', 'even') %>">
-      <% flag = image_tag("#{team.name.downcase.gsub(" ", "_").gsub(".", "")}.gif",
-        { :height => 20, :width => 40, :class => "flag" }) %>
-      <td id="team" ><%= flag %>&nbsp;<%=team.name %></td>
-      <td><%= team.matches %></td>
-      <td><%= team.wins %></td>
-      <td><%= team.draws %></td>
-      <td><%= team.losses %></td>
-      <td><%= team.goals_for %></td>
-      <td><%= team.goals_ag %></td>
-      <td><%= team.goal_dif %></td>
-      <td><%= team.points %></td>
-    </tr>
+<div class="nav">
+  <%= link_to 'Groups', groups_path %>
+  <% @groups.each do |group| %>
+    <% if group.name == @group.name %>
+      <%= @group.name %>
+    <% else %>
+      <%= link_to group.name, { :controller => "groups", :action => "show", :id => group.id } %>
     <% end %>
-  </table>
+  <% end %>
 </div>
 
-<div class="box">
-  <div class="box_header">Scores</div>
-  <div class="box_content">
-    <table class="scores" summary="Score list">
-      <% @group.scores.each do |s| %>
-      <tr>
-        <td class="home_team"><%= s.home_team %></td>
-        <td><%= s.h_score %></td>
-        <td>vs</td>
-        <td><%= s.a_score %></td>
-        <td class="away_team"><%= s.away_team %></td>
+<div class="main">
+  <div class="score_table">
+    <table class="board" summary="Group Board">
+      <tr class="header">
+        <th id="team">Group <%= @group.name %></th>
+        <th>M</th>
+        <th>W</th>
+        <th>D</th>
+        <th>L</th>
+        <th>GF</th>
+        <th>GA</th>
+        <th>GD</th>
+        <th>Pts</th>
+      </tr>
+      <% @group.teams.sort.each do |team| %>
+      <tr class="<%= cycle('odd', 'even') %>">
+        <% flag = image_tag team.flag_img, { :height => 20, :width => 40, :class => "flag" } %>
+        <td id="team" ><%= flag %>&nbsp;<%=team.name %></td>
+        <td><%= team.matches %></td>
+        <td><%= team.wins %></td>
+        <td><%= team.draws %></td>
+        <td><%= team.losses %></td>
+        <td><%= team.goals_for %></td>
+        <td><%= team.goals_ag %></td>
+        <td><%= team.goal_dif %></td>
+        <td><%= team.points %></td>
       </tr>
       <% end %>
     </table>
   </div>
+
+  <div class="box">
+    <div class="box_header">Scores</div>
+    <div class="box_content">
+      <table class="scores" summary="Score list">
+        <% @group.scores.each do |s| %>
+        <tr>
+          <td class="home_team"><%= s.home_team %></td>
+          <td><%= s.h_score %></td>
+          <td>vs</td>
+          <td><%= s.a_score %></td>
+          <td class="away_team"><%= s.away_team %></td>
+          <td class="remove">
+            <%= link_to image_tag("remove_icon.png", { :width => 16, :height => 16 }),
+              s, :method => :delete %>
+          </td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
 </div>
 
-<div class="nav">
-  <h3>&nbsp;
-  <%= link_to "A",
-    { :controller => "groups", :action => "show", :id => 1 },
-    :class => @group.name == "A" ? "current" : "group" %>
-  <%= link_to "B",
-    { :controller => "groups", :action => "show", :id => 2 },
-    :class => @group.name == "B" ? "current" : "group" %>
-  <%= link_to "C",
-    { :controller => "groups", :action => "show", :id => 3 },
-    :class => @group.name == "C" ? "current" : "group" %>
-  <%= link_to "D",
-    { :controller => "groups", :action => "show", :id => 4 },
-    :class => @group.name == "D" ? "current" : "group" %></h3>
-  <%= link_to 'Back', groups_path %>
+<div class="score_form">
+  <%= form_for(@score) do |f| %>
+    <div class="field">
+      <%= f.label :home_team %>
+      <%= f.text_field :home_team %>
+    </div>
+    <div class="field">
+      <%= f.label :away_team %>
+      <%= f.text_field :away_team %>
+    </div>
+    <div class="field">
+      <%= f.label :h_score %>
+      <%= f.number_field :h_score %>
+    </div>
+    <div class="field">
+      <%= f.label :a_score %>
+      <%= f.number_field :a_score %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+    <% if @score.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@score.errors.count, "error") %> prohibited this score from being saved:</h2>
+
+        <ul>
+        <% @score.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+  <% end %>
 </div>

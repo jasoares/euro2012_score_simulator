@@ -1,17 +1,18 @@
 <h2>Groups:</h2>
 
-<% @groups.each do |group| %>
-  <div class="group">
-    <div class="group_header"><%= link_to "Group #{group.name}", group %></div>
-    <div class="group_content">
-      <% group.teams.each do |team| %>
-        <%= image_tag("#{team.name.downcase.gsub(" ", "_").gsub(".", "")}.gif",
-          { :height => 40, :width => 80, :class => "flag" }) %>
-      <% end %>
+<div id="groups">
+  <% @groups.each do |group| %>
+    <div class="group">
+      <div class="group_header"><%= link_to "Group #{group.name}", group %></div>
+      <div class="group_content">
+        <% group.teams.each do |team| %>
+          <%= image_tag("#{team.name.downcase.gsub(" ", "_").gsub(".", "")}.gif",
+            { :height => 40, :width => 80, :class => "flag" }) %>
+        <% end %>
+      </div>
     </div>
-  </div>
-<% end %>
-
+  <% end %>
+</div>
 <!--<table>
 
 <%# @groups.each do |group| %>

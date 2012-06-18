@@ -11,7 +11,7 @@
 
 <% @teams.each do |team| %>
   <tr>
-    <td><%= image_tag "#{team.name.downcase.gsub(" ", "_")}.gif", { :height => 25, :width => 50 } %></td>
+    <td><%= image_tag team.flag_img, { :height => 25, :width => 50 } %></td>
     <td><%= team.name %></td>
     <td><%= team.group %></td>
     <td><%= link_to 'Show', team %></td>

@@ -4,6 +4,12 @@ class Score < ActiveRecord::Base
   belongs_to :group
   attr_accessible :home_team, :away_team, :a_score, :h_score, :group
 
+  validates_presence_of :home_team, :on => :create, :message => "can't be blank"
+  validates_presence_of :away_team, :on => :create, :message => "can't be blank"
+  validates_presence_of :h_score, :on => :create, :message => "can't be blank"
+  validates_presence_of :a_score, :on => :create, :message => "can't be blank"
+  validates_presence_of :group, :on => :create, :message => "can't be blank"
+
   def against?(teams)
     teams = [teams] if teams.is_a?(Team)
     teams.inject(false) do |v, t|

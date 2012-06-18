@@ -73,10 +73,11 @@ class ScoresController < ApplicationController
   # DELETE /scores/1.json
   def destroy
     @score = Score.find(params[:id])
+    group = @score.group
     @score.destroy
 
     respond_to do |format|
-      format.html { redirect_to scores_url }
+      format.html { redirect_to group_path(group) }
       format.json { head :no_content }
     end
   end

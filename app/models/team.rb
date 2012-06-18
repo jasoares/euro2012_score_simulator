@@ -20,27 +20,12 @@ class Team < ActiveRecord::Base
     "Ukraine",
     "Greece",
     "Denmark",
-    "Czech Republic",
+    "Czech Rep.",
     "Poland",
     "Croatia",
     "Sweeden",
-    "Republic of Ireland",
+    "Rep. of Ireland",
   ]
-
-  DEBUG = FALSE
-
-  def board_stats
-    [
-      matches,
-      wins,
-      draws,
-      losses,
-      goals_for,
-      goals_ag,
-      goal_dif,
-      points
-    ]
-  end
 
   def draws(scores=self.scores)
     scores.count { |s| s.draw? }
@@ -56,6 +41,10 @@ class Team < ActiveRecord::Base
 
   def goals_for(scores=self.scores)
     scores.inject(0) { |sum, s| sum += s.goals_for(self) }
+  end
+
+  def flag_img
+    "#{name.downcase.gsub(" ", "_").gsub(".", "")}.gif"
   end
 
   def losses(scores=self.scores)
@@ -89,25 +78,18 @@ class Team < ActiveRecord::Base
   end
 
   def <=>(o)
-    print "\n#{self.name} vs #{o.name} : " if DEBUG
     return o.points - points unless o.points == points
-    print "a " if DEBUG
     tied_teams = group.teams_with_points(self.points)
     scores = group.scores_between(tied_teams)
     return o.points(scores) - points(scores) unless
       o.points(scores) == points(scores) or
       tied_teams.length > 2
-    print "b " if DEBUG
     return o.goal_dif(scores) - goal_dif(scores) unless
       o.goal_dif(scores) == goal_dif(scores)
-    print "c " if DEBUG
     return o.goals_for(scores) - goals_for(scores) unless
       o.goals_for(scores) == goals_for(scores)
-    print "d " if DEBUG
     return o.goal_dif - goal_dif unless o.goal_dif == goal_dif
-    print "e " if DEBUG
     return o.goals_for - goals_for unless o.goals_for == goals_for
-    print "f " if DEBUG
     return ranking < o.ranking ? -1 : 1
   end
 

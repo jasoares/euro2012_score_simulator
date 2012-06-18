@@ -13,32 +13,57 @@
 */
 
 body {
+  font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+  font-size: .7em;
+  color: #373;
   margin: 0px;
 }
 
-div#header {
+a {
+  text-decoration: none;
+  color: #373;
+  background-color: #fff;
+}
+
+a:hover {
+  color: #8c8;
+  background-color: #fff;
+}
+
+#header {
   background: #8c8;
   color: #373;
-  font-family: Arial, Helvetica, sans-serif;
-  height: 50px;
-  padding-top: 15px;
-  padding-left: 20px;
+  height: 60px;
+  padding-top: 10px;
+  padding-left: 10px;
   border-bottom: 5px inset #beb;
 }
 
-div#content {
-  margin: 30px;
-  padding: 10px;
-  overflow: auto;
+#header h1 {
+  float: left;
 }
 
-div#footer {
+#header img {
+  float: left;
+}
+
+#content {
+  float: center;
+  margin: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#footer {
   background: #8c8;
   color: #373;
-  font_size: 1.5em;
-  font-family: Arial, Helvetica, sans-serif;
-  height: 1000px;
+  font_size: .8em;
+  height: 50px;
   text-align: center;
   padding-top: 3px;
-  padding-left: 20px;
+}
+
+#footer a {
+  background-color: #8c8;
+  color: #fff;
 }
