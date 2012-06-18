@@ -23,7 +23,7 @@ class Team < ActiveRecord::Base
     "Czech Rep.",
     "Poland",
     "Croatia",
-    "Sweeden",
+    "Sweden",
     "Rep. of Ireland",
   ]
 
