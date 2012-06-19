@@ -15,7 +15,7 @@ class GroupsController < ApplicationController
   def show
     @group = Group.find(params[:id])
     @groups = Group.all
-    @score = Score.new
+    @score = Score.new(:group_id => @group.id)
 
     respond_to do |format|
       format.html # show.html.erb

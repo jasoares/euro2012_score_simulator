@@ -1,3 +1,37 @@
 // Place all the styles related to the Scores controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#scores {
+  float: center;
+  position: relative;
+  height: 500px;
+  width: 100%;
+}
+
+#scores a {
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+#scores td a {
+  font-size: 1em;
+}
+
+.ljust {
+  text-align: left;
+}
+
+.rjust {
+  text-align: right;
+}
+
+.center {
+  text-align: center;
+  width: 80px;
+}
+
+.group_scores {
+  margin: 0 20px 20px 20px;
+  float: left;
+}

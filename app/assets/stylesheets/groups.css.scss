@@ -117,6 +117,7 @@ div.box {
   clear: all;
   border-collapse: collapse;
   font-size: 1.3em;
+  font-weight: bold;
   padding: 10px 0px 0px 8px;
   background: #8c8;
   height: 25px;
@@ -132,6 +133,16 @@ div.box {
   box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.4);
   -moz-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.4);
   -webkit-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.4);
+}
+
+.box_header a {
+  background-color: #8c8;
+  font-weight: bold;
+}
+
+.box_header a:hover {
+  color: #fff;
+  background-color: #8c8;
 }
 
 .box_content {
@@ -155,7 +166,7 @@ div.box {
 
 #groups{
   float: center;
-  height: 300px;
+  height: 280px;
 }
 
 .group {
@@ -176,6 +187,7 @@ div.box {
   font-size: 1.3em;
   padding: 10px 0px 0px 8px;
   background: #8c8;
+  font-weight: bold;
   height: 25px;
   color: #373;
   text-align: center;
@@ -231,3 +243,21 @@ table.scores {
 table.scores td { padding-left: 2px; padding-right: 2px; }
 table.scores td.home_team { text-align: right; }
 table.scores td.away_team { text-align: left; }
+
+#all_scores_link {
+  padding-right: 10px;
+  text-align: center;
+  text-decoration: underline;
+}
+
+#score_form {
+  margin-bottom: 20px;
+  float: center;
+  height: 50px;
+  overflow: none;
+  position: relative;
+}
+
+#score_form table {
+  float: center;
+}

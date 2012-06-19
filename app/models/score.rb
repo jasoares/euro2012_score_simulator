@@ -2,13 +2,13 @@ class Score < ActiveRecord::Base
   belongs_to :home_team, :class_name => "Team"
   belongs_to :away_team, :class_name => "Team"
   belongs_to :group
-  attr_accessible :home_team, :away_team, :a_score, :h_score, :group
+  attr_accessible :home_team_id, :away_team_id, :a_score, :h_score, :group_id
 
-  validates_presence_of :home_team, :on => :create, :message => "can't be blank"
-  validates_presence_of :away_team, :on => :create, :message => "can't be blank"
-  validates_presence_of :h_score, :on => :create, :message => "can't be blank"
-  validates_presence_of :a_score, :on => :create, :message => "can't be blank"
-  validates_presence_of :group, :on => :create, :message => "can't be blank"
+  validates_numericality_of :a_score, :message => "is not a number"
+  validates_numericality_of :h_score, :message => "is not a number"
+  validates_inclusion_of :a_score, :in => 0..20, :message => "must be a number from 0 to 20"
+  validates_inclusion_of :h_score, :in => 0..20, :message => "must be a number from 0 to 20"
+
 
   def against?(teams)
     teams = [teams] if teams.is_a?(Team)

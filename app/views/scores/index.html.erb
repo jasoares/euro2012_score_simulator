@@ -1,31 +1,37 @@
-<h2>Listing scores</h2>
-
-<table>
-  <tr>
-    <th>Home</th>
-    <th>Away</th>
-    <th>H score</th>
-    <th>A score</th>
-    <th>Group</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @scores.each do |score| %>
-  <tr>
-    <td><%= score.home_team %></td>
-    <td><%= score.away_team %></td>
-    <td><%= score.h_score %></td>
-    <td><%= score.a_score %></td>
-    <td><%= score.group %></td>
-    <td><%= link_to 'Show', score %></td>
-    <td><%= link_to 'Edit', edit_score_path(score) %></td>
-    <td><%= link_to 'Destroy', score, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+<div id="scores">
+  <h2>Scores by group</h2>
+<% @groups.each do |g| %>
+  <% g_scores = @scores.select { |s| s.group == g } %>
+  <div class="group_scores">
+  <table>
+    <%= link_to "Group #{g.name}", g %>
+    <tr>
+      <th>&nbsp;</th>
+      <th class="center">Home</th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+      <th class="center">Away</th>
+      <th>&nbsp;</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  <% g_scores.each do |score| %>
+    <tr>
+      <td><%= image_tag score.home_team.flag_img, { :height => 20, :width => 40, :class => "flag" } %></td>
+      <td class="center"><%= score.home_team %></td>
+      <td><%= score.h_score %></td>
+      <td>&nbsp;vs&nbsp;</td>
+      <td><%= score.a_score %></td>
+      <td class="center"><%= score.away_team %></td>
+      <td><%= image_tag score.away_team.flag_img, { :height => 20, :width => 40, :class => "flag" } %></td>
+      <td><%= link_to 'Show', score %></td>
+      <td><%= link_to 'Edit', edit_score_path(score) %></td>
+      <td><%= link_to 'Delete', score, confirm: 'Are you sure?', method: :delete %></td>
+    </tr>
+  <% end %>
+  </table>
+  </div>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Score', new_score_path %>
+</div>

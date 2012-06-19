@@ -2,6 +2,7 @@ class ScoresController < ApplicationController
   # GET /scores
   # GET /scores.json
   def index
+    @groups = Group.all
     @scores = Score.all
 
     respond_to do |format|
@@ -44,10 +45,10 @@ class ScoresController < ApplicationController
 
     respond_to do |format|
       if @score.save
-        format.html { redirect_to @score, notice: 'Score was successfully created.' }
+        format.html { redirect_to @score.group, notice: 'Score was successfully created.' }
         format.json { render json: @score, status: :created, location: @score }
       else
-        format.html { render action: "new" }
+        format.html { redirect_to @score.group, action: "new" }
         format.json { render json: @score.errors, status: :unprocessable_entity }
       end
     end
